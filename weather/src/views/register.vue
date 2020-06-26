@@ -43,7 +43,7 @@
 				  if (!Number.isInteger(value)) {
 					callback(new Error('请输入数字值'));
 				  } else {
-					if (value < 0 || value>150) {
+					if (value < 0 || value>120) {
 					  callback(new Error('输入合适的年龄'));
 					} else {
 					  callback();

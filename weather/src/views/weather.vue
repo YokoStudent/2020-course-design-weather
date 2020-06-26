@@ -11,13 +11,13 @@
 				<el-col :span="8"><div class="grid-content text-center">今日您已查询2次</div></el-col>
 				<el-col :span="8">
 					<div class="grid-content text-center">
-						<el-dropdown>
+						<el-dropdown @command="navTo">
 							<span class="el-dropdown-link">
 								账号操作<i class="el-icon-arrow-down el-icon--right"></i>
 							</span>
 							<el-dropdown-menu slot="dropdown">
-								<el-dropdown-item disabled>登录</el-dropdown-item>
-								<el-dropdown-item divided>注册</el-dropdown-item>
+								<el-dropdown-item disabled command="/login">登录</el-dropdown-item>
+								<el-dropdown-item divided command="/register">注册</el-dropdown-item>
 								<el-dropdown-item divided>退出</el-dropdown-item>
 							</el-dropdown-menu>
 						</el-dropdown>
@@ -69,6 +69,11 @@
 			//根据城市code获取天气
 			getWeather(){
 				
+			},
+			//导航
+			navTo(url){
+				console.log(url);
+				this.$router.push({path:url});
 			}
 		}
 	}
