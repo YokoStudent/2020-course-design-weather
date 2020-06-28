@@ -6,6 +6,9 @@
 
 <script>
 	export default{
+		props:{
+			weatherList:[]
+		},
 		data(){
 			return{
 				chartSettings : {

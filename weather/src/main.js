@@ -4,7 +4,7 @@ import router from './router'
 import store from './store'
 
 // axios
-import './plugins/axios'
+import './config/axios.js'
 
 // element-ui
 import ElementUI from 'element-ui'

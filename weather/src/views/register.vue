@@ -89,7 +89,7 @@
             }
         },
 		created() {
-			// this.$msg('注册页面');
+			this.$msg('注册页面');
 		},
         methods: {
             submitForm(formName) {
@@ -98,13 +98,16 @@
                     if (valid) {
                         that.$load("注册中....");
 						register(that.userinfo).then(res=>{
-							if(res.code === 200){
+							if(res.data.status === 200){
 								that.$msg("注册成功")
 								this.$router.replace({path:'/login'})
+							}else if(res.data.status === 403){
+								that.$msg(res.data.msg,'error');
 							}else{
 								that.$msg("注册失败",'error')
 							}
 						}).catch(err=>{
+							console.log(err)
 							that.$msg("注册失败",'error')
 						})
 						that.$loading().close();

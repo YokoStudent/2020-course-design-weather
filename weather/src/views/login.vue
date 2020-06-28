@@ -38,7 +38,17 @@
             }
         },
 		created() {
-			this.$msg('登录页面');
+			var token = localStorage.getItem("token") ;
+			var that = this ;
+			if(token != null){
+				this.$msg("已登录");
+				setTimeout(function(){
+					that.$router.replace({"path":'/'}) ;
+				},500)
+				return ;
+			}else {
+				this.$msg('登录页面');
+			}
 		},
         methods: {
             submitForm(formName) {
@@ -46,10 +56,14 @@
                 that.$refs[formName].validate((valid) => {
                     if (valid) {
                         that.$load("登录中...") ;
-						login(that.userinfo).then(res=>{
-							if(res.code === 200){
+						login(that.userinfo).then(res=>{console.log(res)
+							if(res.data.status === 200){
 								that.$msg("登录成功") ;
+								localStorage.setItem("accessToken",res.data.token) ;
+								localStorage.setItem("username",res.data.username) ;
 								that.$router.replace({"path":"/"})
+							}else if(res.data.status === 403){
+								that.$msg(res.data.msg,"error") ;
 							}else {
 								that.$msg("登录失败","error") ;
 							}

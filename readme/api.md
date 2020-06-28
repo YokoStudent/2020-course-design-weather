@@ -17,14 +17,13 @@
 > POST
 
 ###### 请求参数
-> | 参数         | 必选 | 类型   | 说明                   |
-> | :----------- | :--- | :----- | ---------------------- |
-> | username     | ture | string | 姓名                   |
-> | password     | true | string | 密码                   |
-> | password2    | true | string | 确认密码               |
-> | sex          | true | int    | 性别。1：男；0：女。   |
-> | age          | true | int    | 年龄。min：0；max：120 |
-> | registerTime | true | date   | 注册时间。2020-6-26    |
+> | 参数      | 必选 | 类型   | 说明                   |
+> | :-------- | :--- | :----- | ---------------------- |
+> | username  | ture | string | 姓名                   |
+> | password  | true | string | 密码                   |
+> | password2 | true | string | 确认密码               |
+> | sex       | true | int    | 性别。1：男；0：女。   |
+> | age       | true | int    | 年龄。min：0；max：120 |
 
 ###### 返回字段
 > | 返回字段 | 字段类型 | 说明                                                      |
