@@ -76,6 +76,7 @@
 	import {getTimes} from '@/api/weather.js' ;
 	import {getWeather} from '@/api/weather.js' ;
 	import {getRecentCitys} from '@/api/weather.js' ;
+	import {logout} from '@/api/user.js' ;
 	
 	export default{
 		components: {
@@ -176,8 +177,12 @@
 			navTo(url){
 				if("logout" == url){
 					url = "/login";
-					localStorage.removeItem("accessToken") ;
-					localStorage.removeItem("username") ;
+					// 服务器清除token
+					logout().then(res =>{
+						// 本地storage清除token
+						localStorage.removeItem("accessToken") ;
+						localStorage.removeItem("username") ;
+					})
 				}
 				this.$router.push({path:url});
 			},

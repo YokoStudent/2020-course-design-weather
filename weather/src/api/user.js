@@ -13,3 +13,10 @@ export function login(data){
 		method:'POST'
 	})
 }
+
+export function logout(){
+	return axios({
+		url:'/user/logout',
+		method:'GET'
+	})
+}

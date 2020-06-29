@@ -17,13 +17,12 @@
 > POST
 
 ###### 请求参数
-> | 参数      | 必选 | 类型   | 说明                   |
-> | :-------- | :--- | :----- | ---------------------- |
-> | username  | ture | string | 姓名                   |
-> | password  | true | string | 密码                   |
-> | password2 | true | string | 确认密码               |
-> | sex       | true | int    | 性别。1：男；0：女。   |
-> | age       | true | int    | 年龄。min：0；max：120 |
+> | 参数     | 必选 | 类型   | 说明                   |
+> | :------- | :--- | :----- | ---------------------- |
+> | username | ture | string | 姓名                   |
+> | password | true | string | 密码                   |
+> | sex      | true | int    | 性别。1：男；0：女。   |
+> | age      | true | int    | 年龄。min：0；max：120 |
 
 ###### 返回字段
 > | 返回字段 | 字段类型 | 说明                                                      |
@@ -98,6 +97,48 @@
 {
     "status": 403,
     "msg": "不存在用户",
+}
+```
+##### **3\. 退出**
+
+###### 接口功能
+
+> 用户退出登录
+
+###### URL
+
+> [http://localhost:8081/api/v1/user](http://localhost:8081/api/v1/user)
+
+###### 支持格式
+
+> JSON
+
+###### HTTP请求方式
+
+> GET
+
+###### 请求头
+
+> | 参数        | 必选  | 类型   | 说明      |
+> | :---------- | :---- | :----- | --------- |
+> | accessToken | false | string | 用户token |
+
+###### 返回字段
+
+> | 返回字段 | 字段类型 | 说明                                                      |
+> | :------- | :------- | :-------------------------------------------------------- |
+> | status   | int      | 返回结果状态。200：登录成功；403：登录失败；504请求超时。 |
+> | msg      | string   | 描述。successmsg；errormsg                                |
+
+###### 接口示例
+
+> 地址：[http://localhost:8081/api/v1/user/logout"](http://localhost:8081/api/v1/user/logout)
+>
+
+``` javascript
+{
+    "status": 200,
+    "msg": "success",
 }
 ```
 
